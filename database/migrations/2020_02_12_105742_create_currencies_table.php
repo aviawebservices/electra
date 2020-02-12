@@ -17,9 +17,11 @@ class CreateCurrenciesTable extends Migration
             $table->increments('id');
             $table->string('iso_code', 10);
             $table->string('name');
-            $table->string('symbol', 10);
-            $table->string('html_entity');
-            $table->string('subunit');
+            $table->string('symbol', 10)->nullable();
+            $table->string('html_entity')->nullable();
+            $table->string('subunit')->nullable();
+            $table->boolean('is_enabled')->default(false);
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
     }
